@@ -11,34 +11,18 @@ readXml.Settings = new System.Xml.XmlReaderSettings
 };
 
 
-
+if(readXml.ReadAll())
+    foreach (carModel car in readXml.Collection)
+        Console.WriteLine(car.ToString());
 
 
 //- Reading the Xml file. 
-readXml.ReadAll();
-
-
-
 
 //- Printing To Console, (Models) 
-foreach (carModel car in readXml.Collection)
-    Console.WriteLine(car.ToString());
-
-
-
 
 //- Writing to XML
 WriteXml<carModel> writeXml = new WriteXml<carModel>("cars", readXml.Collection);
-
-
-
-
 //- Write To Console
 Console.WriteLine(writeXml.SaveToString());
-
-
-
-
-
 //- Write to file
 writeXml.SaveToFile($"{Directory.GetCurrentDirectory()}/XmlFile.xml");

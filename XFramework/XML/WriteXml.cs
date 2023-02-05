@@ -3,7 +3,7 @@ using Xframwork.Xml;
 
 namespace Xframwork.XML
 {
-    public class WriteXml<T> where T : AXml<T>, new()
+    public class WriteXml<T> where T : AXml<T>
     {
         public WriteXml(string startElement, LinkedList<AXml<T>> collection)
         {

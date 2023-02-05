@@ -7,8 +7,6 @@ namespace Xframwork.Xml
     public abstract class AXml<T>:IXML<T>
     {
         public abstract string ElementName { get;}
-
-
         public void ToXml(XmlWriter writer)
         {
             XOutput xOutput = new XOutput();
@@ -29,7 +27,6 @@ namespace Xframwork.Xml
 
             writer.WriteEndElement();
         }
-
         public T FromXml(XmlReader reader)
         {
             Dictionary<string,string> keyValuePairs= new Dictionary<string,string>();
@@ -49,7 +46,6 @@ namespace Xframwork.Xml
             reader.ReadEndElement();
             return OnRead(new XInput(keyValuePairs));
         }
-
         protected abstract void OnWrite(XOutput xOutput);
         protected abstract T OnRead(XInput xInput);
     }

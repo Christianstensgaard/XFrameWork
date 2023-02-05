@@ -3,7 +3,7 @@ using Xframwork.Xml;
 
 namespace Xframwork.XML
 {
-    public class ReadXml<T> where T : AXml<T>, new() //- This makes it possible to create a instance of T if it has a Default constructor. 
+    public class ReadXml<T> where T : AXml<T>, new()
     {
         /// <summary>
         /// Creating an Instance of the ReadXML, 
@@ -18,8 +18,8 @@ namespace Xframwork.XML
             Settings = new();
         }
 
-        public LinkedList<AXml<T>> Collection { get; private set; } //- Using linkedList<> because i don't Need the sorting or other. 
-        public XmlReaderSettings Settings { get; set; } //- Settings
+        public LinkedList<AXml<T>> Collection { get; private set; }
+        public XmlReaderSettings Settings { get; set; }
         public bool ReadAll()
         {
             try
@@ -34,7 +34,7 @@ namespace Xframwork.XML
                 return true;
             }
             catch (Exception ex) { Console.WriteLine(ex); return false; }
-        }//- Reading all Elements<T> from the xml-file. This class don't know anything about the files information, but used the IXML<T> interface to do the job. 
+        }
 
         #region Private
         string startElement;

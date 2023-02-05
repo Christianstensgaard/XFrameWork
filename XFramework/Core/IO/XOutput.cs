@@ -79,8 +79,6 @@
         /// <param name="value">Attribute Value</param>
         public void Attribute(string key, float value)
             => Add(key, value.ToString(), true);
-
-
         internal XOutput()
         {
             ElementSet = new Dictionary<string, string>();
@@ -88,7 +86,6 @@
         }
         internal Dictionary<string, string> ElementSet { get; set; }
         internal Dictionary<string, string> AttributeSet { get; set; }
-
         void Add(string key, string value, bool isAttribute)
         {
             switch (isAttribute)
