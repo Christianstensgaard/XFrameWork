@@ -41,7 +41,6 @@
             => Add(key, value.ToString(), false);
 
 
-
         //------------------------------------------------
         //- Store as Attribute
         /// <summary>
@@ -83,7 +82,7 @@
         {
             ElementSet = new Dictionary<string, string>();
             AttributeSet = new Dictionary<string, string>();
-        }
+        } 
         internal Dictionary<string, string> ElementSet { get; set; }
         internal Dictionary<string, string> AttributeSet { get; set; }
         void Add(string key, string value, bool isAttribute)

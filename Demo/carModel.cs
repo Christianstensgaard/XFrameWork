@@ -31,6 +31,9 @@ namespace Demo
             return this;
         }
 
+
+
+
         protected override void OnWrite(XOutput xOutput)
         {
             xOutput.Attribute("name", Name);
