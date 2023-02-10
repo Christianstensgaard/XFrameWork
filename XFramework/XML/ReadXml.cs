@@ -17,7 +17,6 @@ namespace Xframwork.XML
             Collection = new();
             Settings = new();
         }
-
         public LinkedList<AXml<T>> Collection { get; private set; }
         public XmlReaderSettings Settings { get; set; }
         public bool ReadAll()
@@ -35,7 +34,6 @@ namespace Xframwork.XML
             }
             catch (Exception ex) { Console.WriteLine(ex); return false; }
         }
-
         #region Private
         string startElement;
         string path;

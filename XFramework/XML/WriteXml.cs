@@ -15,28 +15,28 @@ namespace Xframwork.XML
             };
         }
 
-        public LinkedList<AXml<T>> Collection { get; set; } //-Collection of Instance of IXML<T> 
-        public XmlWriterSettings Settings { get; set; } //-Writer settings. 
+        public LinkedList<AXml<T>> Collection { get; set; }
+        public XmlWriterSettings Settings { get; set; }
         public void Add(params T[] items)
         {
             foreach (var item in items)
                 Collection.AddLast(item);
-        }//- Add a instance of T to be writen to the xml
+        }
         public bool Remove(T target)
         {
            return Collection.Remove(target);
-        }//- Remove a instance of T object
+        }
         public void SaveToFile(string path)
         {
             if (Write())
                 File.WriteAllText($"{path}", stringWriter.ToString());
-        }//- Writing the xml-format to the file. 
+        }
         public string SaveToString()
         {
             if (Write())
                 return stringWriter.ToString();
             else return string.Empty;
-        }//- Returning the Xml-Format as a string
+        }
 
         #region Private
         string startElement;
