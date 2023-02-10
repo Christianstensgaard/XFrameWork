@@ -15,11 +15,11 @@
         } 
         internal Dictionary<string, string> ElementSet { get; set; }
         internal Dictionary<string, string> AttributeSet { get; set; }
+        
         void AddElement(string key, string value)
         {
             ElementSet[key] = value;
         }
-
         void AddAttribute(string key, string value)
         {
             AttributeSet[key] = value;
