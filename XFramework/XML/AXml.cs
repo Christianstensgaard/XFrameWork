@@ -1,13 +1,12 @@
 ﻿using System.Xml;
 using XFramework.Core.IO;
-using XFramework.Core.Interface;
 
 namespace Xframwork.Xml
 {
-    public abstract class AXml<T>:IXML<T>
+    public abstract class AXml<T>
     {
         public abstract string ElementName { get;}
-        public void ToXml(XmlWriter writer)
+        internal void ToXml(XmlWriter writer)
         {
             XOutput xOutput = new XOutput();
             OnWrite(xOutput);
@@ -24,10 +23,9 @@ namespace Xframwork.Xml
             {
                 writer.WriteElementString(item.Key, item.Value);
             }
-
             writer.WriteEndElement();
         }
-        public T FromXml(XmlReader reader)
+        internal T FromXml(XmlReader reader)
         {
             Dictionary<string,string> keyValuePairs= new Dictionary<string,string>();
 

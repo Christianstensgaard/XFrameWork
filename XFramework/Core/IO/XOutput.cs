@@ -2,82 +2,12 @@
 {
     public class XOutput
     {
-        //------------------------------------------------
-        //- Store as Element
-        /// <summary>
-        /// Write Element
-        /// </summary>
-        /// <param name="key">Element name</param>
-        /// <param name="value">element Value</param>
-        public void Element(string key, int value)
-            => Add(key, value.ToString(), false);
-        /// <summary>
-        /// Write Element
-        /// </summary>
-        /// <param name="key">Element name</param>
-        /// <param name="value">element Value</param>
-        public void Element(string key, string value)
-            => Add(key, value.ToString(), false);
-        /// <summary>
-        /// Write Element
-        /// </summary>
-        /// <param name="key">Element name</param>
-        /// <param name="value">element Value</param>
-        public void Element(string key, bool value)
-            => Add(key, value.ToString(), false);
-        /// <summary>
-        /// Write Element
-        /// </summary>
-        /// <param name="key">Element name</param>
-        /// <param name="value">element Value</param>
-        public void Element(string key, double value)
-            => Add(key, value.ToString(), false);
-        /// <summary>
-        /// Write Element
-        /// </summary>
-        /// <param name="key">Element name</param>
-        /// <param name="value">element Value</param>
-        public void Element(string key, float value)
-            => Add(key, value.ToString(), false);
+        
+        public void Element(string key, object value)
+            => AddElement(key, value.ToString()!);
+        public void Attribute(string key, object value)
+            => AddAttribute(key, value.ToString()!);
 
-
-        //------------------------------------------------
-        //- Store as Attribute
-        /// <summary>
-        /// Write Attribute
-        /// </summary>
-        /// <param name="key">Attribute name</param>
-        /// <param name="value">Attribute Value</param>
-        public void Attribute(string key, int value)
-            => Add(key, value.ToString(), true);
-        /// <summary>
-        /// Write Attribute
-        /// </summary>
-        /// <param name="key">Attribute name</param>
-        /// <param name="value">Attribute Value</param>
-        public void Attribute(string key, string value)
-            => Add(key, value.ToString(), true);
-        /// <summary>
-        /// Write Attribute
-        /// </summary>
-        /// <param name="key">Attribute name</param>
-        /// <param name="value">Attribute Value</param>
-        public void Attribute(string key, bool value)
-            => Add(key, value.ToString(), true);
-        /// <summary>
-        /// Write Attribute
-        /// </summary>
-        /// <param name="key">Attribute name</param>
-        /// <param name="value">Attribute Value</param>
-        public void Attribute(string key, double value)
-            => Add(key, value.ToString(), true);
-        /// <summary>
-        /// Write Attribute
-        /// </summary>
-        /// <param name="key">Attribute name</param>
-        /// <param name="value">Attribute Value</param>
-        public void Attribute(string key, float value)
-            => Add(key, value.ToString(), true);
         internal XOutput()
         {
             ElementSet = new Dictionary<string, string>();
@@ -85,17 +15,14 @@
         } 
         internal Dictionary<string, string> ElementSet { get; set; }
         internal Dictionary<string, string> AttributeSet { get; set; }
-        void Add(string key, string value, bool isAttribute)
+        void AddElement(string key, string value)
         {
-            switch (isAttribute)
-            {
-                case true:
-                    AttributeSet[key] = value;
-                    break;
-                case false:
-                    ElementSet[key] = value;
-                    break;
-            }
+            ElementSet[key] = value;
+        }
+
+        void AddAttribute(string key, string value)
+        {
+            AttributeSet[key] = value;
         }
     }
 }
